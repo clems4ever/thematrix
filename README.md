@@ -2,6 +2,8 @@
 
 Matrix digital rain in WebGL2: green glyphs falling on black.
 
+![The Matrix digital rain](screenshot.png)
+
 ## Run
 
 ```sh
