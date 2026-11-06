@@ -10,6 +10,12 @@ node server.js
 
 Open http://localhost:8000.
 
+## Docker
+
+```sh
+docker run --rm -p 8000:8000 ghcr.io/clems4ever/thematrix
+```
+
 ## Controls
 
 - Click or press any key: fullscreen
