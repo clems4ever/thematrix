@@ -7,8 +7,11 @@ Matrix digital rain in WebGL2: green glyphs falling on black.
 ## Run
 
 ```sh
-node server.js
+node build.js
+node server.js dist
 ```
+
+`build.js` inlines the shaders from `shaders/` into `dist/matrix.js`.
 
 Open http://localhost:8000.
 

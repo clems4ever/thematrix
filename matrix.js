@@ -45,18 +45,9 @@
   if (aniso) gl.texParameterf(gl.TEXTURE_2D, aniso.TEXTURE_MAX_ANISOTROPY_EXT, 4);
 
   // ---------- shaders ----------
-  // Shaders live in shaders/; '#include "file"' lines are inlined at load time.
-  const load = async f => {
-    const r = await fetch('shaders/' + f);
-    if (!r.ok) throw new Error('failed to load shaders/' + f);
-    const txt = await r.text();
-    return (await Promise.all(txt.split('\n').map(async l => {
-      const m = l.match(/^\s*#include\s+"(.+)"\s*$/);
-      return m ? load(m[1]) : l;
-    }))).join('\n');
-  };
-  const [VS, RAIN_FS, BRIGHT_FS, BLUR_FS, COMP_FS] = await Promise.all(
-    ['quad.vert', 'rain.frag', 'bright.frag', 'blur.frag', 'composite.frag'].map(load));
+  // build.js replaces each shader(...) call with that file's source from shaders/.
+  const VS = shader('quad.vert'), RAIN_FS = shader('rain.frag'), BRIGHT_FS = shader('bright.frag'),
+    BLUR_FS = shader('blur.frag'), COMP_FS = shader('composite.frag');
 
   function compile(type, src) {
     const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
