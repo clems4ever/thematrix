@@ -1,5 +1,7 @@
 FROM node:22-alpine AS build
 WORKDIR /src
+COPY package.json package-lock.json ./
+RUN npm ci
 COPY . .
 RUN node build.js
 
