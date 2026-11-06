@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Matrix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Share+Tech+Mono&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; cursor: none; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+  #intro {
+    position: fixed; left: 6vw; top: 8vh; color: #7dffa0;
+    font: 500 clamp(16px, 2.2vw, 28px) "Share Tech Mono", monospace;
+    text-shadow: 0 0 6px #2bff6a, 0 0 18px #00c040;
+    white-space: pre; pointer-events: none; transition: opacity 1.6s ease;
+  }
+  #intro .cursor { display: inline-block; width: .6em; height: 1.05em; background: #7dffa0;
+    vertical-align: -0.15em; box-shadow: 0 0 10px #2bff6a; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  #hint { position: fixed; right: 16px; bottom: 12px; color: #1f7a3a; opacity: .6;
+    font: 12px "Share Tech Mono", monospace; pointer-events: none; transition: opacity 2s; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="intro"></div>
+<div id="hint">click anywhere for fullscreen</div>
+<script src="matrix.js"></script>
+</body>
+</html>
+
